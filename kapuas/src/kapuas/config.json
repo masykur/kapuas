@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "kapuas"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-kapuas-e82e5890-c89b-45a2-bc6d-da8c7f34ef4b;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
