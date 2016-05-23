@@ -1,8 +1,43 @@
-﻿@{
+﻿@model Gallery
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+<div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Category <span class="sr-only">(current)</span></a></li>
+            @foreach (var category in Model.Categories)
+            {
+                <li>
+                    @Html.ActionLink(@category.Name, "Category", new { id = category.Id })
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="row">
+            @foreach (var book in Model.Books)
+            {
+                <div class="book-list">
+                    <img src="~/images/bookcover/@(book.Id).jpg" />
+                    <div class="book-title">
+                        @Html.ActionLink(book.Title, "Detail", new { id = book.Id }, new { title = book.Title })
+                    </div>
+                    <div class="book-author">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> @Html.ActionLink(book.Author, "BookByAuthor", new { id = book.Author })
+                    </div>
+                    <div class="book-price">
+                        @book.Price.ToString("C")
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+@*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -101,4 +136,4 @@
             <li><a href="http://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
         </ul>
     </div>
-</div>
+</div>*@

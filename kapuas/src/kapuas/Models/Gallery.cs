@@ -8,6 +8,8 @@ namespace kapuas.Models
     public class Gallery
     {
         public IEnumerable<Book> Books { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
+        public IEnumerable<Category> Categories {
+            get { return (from c in Books where c.Category != null select c.Category).Distinct(); }
+        }
     }
 }
