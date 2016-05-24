@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/kapuas/src/kapuas/node_modules
+/kapuas/src/kapuas.mobile/node_modules
